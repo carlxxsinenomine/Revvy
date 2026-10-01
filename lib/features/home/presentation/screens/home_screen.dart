@@ -84,7 +84,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                padding: EdgeInsets.symmetric(vertical: 32, horizontal: 34),
                 child: Column(
                   children: [
                     // Upload logo
@@ -98,25 +98,46 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         child: Icon(Icons.cloud_upload_outlined),
                       ),
                     ),
+                    SizedBox(height: 14),
                     // Text
                     Text("Drop Lecture Slides or Notes"),
                     Text(
                       "Accepts PDF, PPTX, Keynote, Audio Transcripts up to 150MB",
                     ),
+                    SizedBox(height: 14),
                     // Two buttons
                     InkWell(
-                      child: Ink(
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.add_circle_outline_outlined),
-                            Text("SELECT FILE FROM DEVICE"),
+                            Icon(
+                              Icons.add_circle_outline_outlined,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "SELECT FILE FROM DEVICE",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ],
                         ),
                       ),
                     ),
+                    SizedBox(height: 14),
                     InkWell(
-                      child: Ink(
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFFF1BB),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.cloud),
                             Text("IMPORT CANV/DRIVE"),
@@ -128,6 +149,71 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [Text("Modules & Archive"), Text("Clear all")],
+            ),
+            SizedBox(
+              height: 28,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      height: 20,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: Colors.black,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Center(
+                          child: Text(
+                            "All Modules",
+                            style: TextStyle(color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Cards
+            GestureDetector(
+              child: Container(
+                height: 130,
+                width: 190,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFBE68A),
+                  borderRadius: BorderRadius.circular(30)
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 18),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            child: Icon(Icons.mic_outlined),
+                          ),
+                          Text("Voice Note")
+                        ],
+                      ),
+                      SizedBox(height: 30,),
+                      Row(
+                        children: [
+                          Expanded(child: Text("Record live lecture")),
+                          SizedBox(width: 20,),
+                          Container(child: Icon(Icons.arrow_forward))
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
