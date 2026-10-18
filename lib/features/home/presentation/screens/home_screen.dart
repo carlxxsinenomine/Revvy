@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:revvy/core/theme/theme.dart';
+import 'package:revvy/features/home/presentation/widgets/filter_card.dart';
+import 'package:revvy/features/home/presentation/widgets/note_card.dart';
 import 'package:revvy/shared/bottom_nav.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -20,7 +22,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       backgroundColor: AppColors.background,
       bottomNavigationBar: BottomNav(),
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
             // Header
             Row(
@@ -158,25 +160,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  GestureDetector(
-                    child: Container(
-                      height: 20,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.black,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Center(
-                          child: Text(
-                            "All Modules",
-                            style: TextStyle(color: Colors.white),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  FilterCard()
                 ],
               ),
             ),
@@ -213,7 +197,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ),
               ),
-            )
+            ),
+            // Documents section
+            Row(
+              children: [
+                Icon(Icons.file_copy),
+                Text("Source Documents & Logs"),
+                Text("3 Notes"),
+              ],
+            ),
+            // Note Cards
+            NoteCard()
           ],
         ),
       ),
