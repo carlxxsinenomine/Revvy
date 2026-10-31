@@ -6,7 +6,6 @@ class NoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:100,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: Colors.white

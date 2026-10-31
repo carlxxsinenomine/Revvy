@@ -23,6 +23,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       bottomNavigationBar: BottomNav(),
       body: SafeArea(
         child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           children: [
             // Header
             Row(
@@ -47,7 +48,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 InkWell(onTap: () {}, child: Icon(Icons.dashboard)),
               ],
             ),
-
+            const SizedBox(height: 12,),
             // Search bar
             TextField(
               decoration: InputDecoration(
@@ -77,7 +78,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
               ),
             ),
-
+            const SizedBox(height: 12,),
             // File input container
             Container(
               width: double.infinity,
@@ -151,6 +152,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
               ),
             ),
+            const SizedBox(height: 12,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [Text("Modules & Archive"), Text("Clear all")],
